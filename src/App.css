@@ -7,14 +7,15 @@
   width: 70%;
 }
 
-.rocket {
+.gear {
   pointer-events: none;
   font-size: 20vmin;
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
-  .rocket {
-    animation: rocket-flight infinite 5s ease-in-out;
+  .gear {
+    animation: spin infinite 2s linear;
   }
 }
 
@@ -33,19 +34,11 @@
   color: #61dafb;
 }
 
-@keyframes rocket-flight {
-  from {
-    -webkit-transform: translate(0) rotate(-45deg);
-    -moz-transform: translate(0) rotate(-45deg);
-    -ms-transform: translate(0) rotate(-45deg);
-    -o-transform: translate(0) rotate(-45deg);
-    transform: translate(0) rotate(-45deg);
+@keyframes spin {
+  0% {
+    transform:  rotate(0deg);
   }
-  to {
-    -webkit-transform: translate(0, -400px) rotate(-45deg);
-    -moz-transform: translate(0, -400px) rotate(-45deg);
-    -ms-transform: translate(0, -400px) rotate(-45deg);
-    -o-transform: translate(0, -400px) rotate(-45deg);
-    transform: translate(0, -400px) rotate(-45deg);
+  100% {
+    transform: rotate(360deg);
   }
 }

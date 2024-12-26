@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <i className="fi fi-ss-rocket-lunch rocket"></i>
+          <i className="fi fi-ss-settings gear"></i>
         <p>
 Coming soon...
         </p>
