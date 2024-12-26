@@ -1,15 +1,20 @@
 .App {
-  text-align: center;
+  text-align: justify;
 }
 
-.App-logo {
-  height: 40vmin;
+.center-text
+{
+  width: 70%;
+}
+
+.rocket {
   pointer-events: none;
+  font-size: 20vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .rocket {
+    animation: rocket-flight infinite 5s ease-in-out;
   }
 }
 
@@ -28,11 +33,19 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes rocket-flight {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: translate(0) rotate(-45deg);
+    -moz-transform: translate(0) rotate(-45deg);
+    -ms-transform: translate(0) rotate(-45deg);
+    -o-transform: translate(0) rotate(-45deg);
+    transform: translate(0) rotate(-45deg);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: translate(0, -400px) rotate(-45deg);
+    -moz-transform: translate(0, -400px) rotate(-45deg);
+    -ms-transform: translate(0, -400px) rotate(-45deg);
+    -o-transform: translate(0, -400px) rotate(-45deg);
+    transform: translate(0, -400px) rotate(-45deg);
   }
 }
