@@ -1,29 +1,33 @@
-name: Deploy to GitHub Pages via angular-cli-ghpages
+name: Deploy React App to GitHub Pages
 
-on: 
+on:
   push:
     branches:
-    - master
-  label: 
-    types: [created, edited]
+      - main # Replace with the default branch of your repository if different
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Use Node.js 18.x
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
-        cache: 'npm'
+        node-version: 16 # Ensure compatibility with React scripts
 
-    - name: Prepare and deploy
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build React App
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        target_branch: gh-pages
+        build_dir: build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        npm install
-        npm run ng -- deploy --base-href=https://itinessity.github.io/placeholder/ --name="Itinessity" --email="mail@example.org" --no-silent
